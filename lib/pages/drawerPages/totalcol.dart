@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:uno_kart/pages/components/customappbar.dart';
 
 class TotalCollection extends StatefulWidget {
   @override
@@ -10,10 +9,9 @@ class _TotalCollectionState extends State<TotalCollection> {
   @override
   Widget build(BuildContext context) {
     return
-      //   Scaffold(appBar: Myappbar(title: Text('New Order'),
-      // ),
-      //   body: 
-      Center(child: Text('Total Collection'));
+        //   Scaffold(appBar: Myappbar(title: Text('New Order'),
+        // ),
+        //   body:
+        Center(child: Text('Total Collection'));
   }
 }
-

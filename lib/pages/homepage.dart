@@ -16,11 +16,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final _pageController = PageController();
+  String appBarTitle = 'New Order';
   @override
   Widget build(BuildContext context){
     return Scaffold(
         appBar:
-        Myappbar(title: Text('hello')),
+        Myappbar(title: Text(appBarTitle)),
         drawer: Drawer(
           child: ListView(
             physics: NeverScrollableScrollPhysics(),
@@ -57,6 +58,9 @@ class _HomePageState extends State<HomePage> {
                 onTap: () {
                   Navigator.pop(context);
                   _pageController.jumpToPage(0);
+                  setState(() {
+                    appBarTitle = 'New Order';
+                  });
                 },
               ),
               ListTile(
@@ -69,7 +73,7 @@ class _HomePageState extends State<HomePage> {
                   Navigator.pop(context);
                   _pageController.jumpToPage(1);
                   setState(() {
-
+                    appBarTitle = 'Delivered Order';
                   });
                 },
               ),
@@ -82,6 +86,9 @@ class _HomePageState extends State<HomePage> {
                 onTap: () {
                   Navigator.pop(context);
                   _pageController.jumpToPage(2);
+                  setState(() {
+                    appBarTitle = 'Cancel Order';
+                  });
                 },
               ),
               ListTile(
@@ -93,6 +100,9 @@ class _HomePageState extends State<HomePage> {
                 onTap: () {
                   Navigator.pop(context);
                   _pageController.jumpToPage(3);
+                  setState(() {
+                    appBarTitle = 'Search Order';
+                  });
                 },
               ),
               ListTile(
@@ -104,6 +114,9 @@ class _HomePageState extends State<HomePage> {
                 onTap: () {
                   Navigator.pop(context);
                   _pageController.jumpToPage(4);
+                  setState(() {
+                    appBarTitle = 'Total Collection';
+                  });
                 },
               ),
               ListTile(
@@ -115,6 +128,9 @@ class _HomePageState extends State<HomePage> {
                 onTap: () {
                   Navigator.pop(context);
                   _pageController.jumpToPage(5);
+                  setState(() {
+                    appBarTitle = 'Contact Us';
+                  });
                 },
               ),
               ListTile(
@@ -126,6 +142,9 @@ class _HomePageState extends State<HomePage> {
                 onTap: () {
                   Navigator.pop(context);
                   _pageController.jumpToPage(6);
+                  setState(() {
+                    appBarTitle = 'Menu List';
+                  });
                 },
               ),
               ListTile(
@@ -133,10 +152,13 @@ class _HomePageState extends State<HomePage> {
                   "res/home.png",
                   scale: 2,
                 ),
-                title: Text('About Restraunt'),
+                title: Text('About Restaurant'),
                 onTap: () {
                   Navigator.pop(context);
                   _pageController.jumpToPage(7);
+                  setState(() {
+                    appBarTitle = 'About Restaurant';
+                  });
                 },
               ),
             ],

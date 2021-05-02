@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:uno_kart/pages/components/customappbar.dart';
 
 class CancelOrder extends StatefulWidget {
   @override
@@ -7,13 +6,17 @@ class CancelOrder extends StatefulWidget {
 }
 
 class _CancelOrderState extends State<CancelOrder> {
+  Widget title1;
+  @override
+  void initState() {
+    super.initState();
+    setState(() {
+      title1 = Text('Cancel Order');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return
-      //   Scaffold(appBar: Myappbar(title: Text('New Order'),
-      // ),
-      //   body: 
-      Center(child: Text('Cancel Order'));
+    return Center(child: Text('Cancel Order'));
   }
 }
-
