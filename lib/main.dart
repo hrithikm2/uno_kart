@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:uno_kart/login/login.dart';
 import 'package:uno_kart/pages/components/customappbar.dart';
+import 'package:uno_kart/pages/components/date.dart';
+import 'package:uno_kart/pages/drawerPages/searchorder.dart';
+import 'package:uno_kart/pages/homepage.dart';
 
 void main() {
   runApp(MainScreenLess());
@@ -10,7 +13,9 @@ class MainScreenLess extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MainScreen(),
+      debugShowCheckedModeBanner: false,
+      home:HomePage(),
+      //MainScreen(),
     );
   }
 }
@@ -22,6 +27,8 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+ // static final height = MediaQuery.of(context).size.height;
+ // static final
   @override
   Widget build(BuildContext context) {
     return Scaffold(
