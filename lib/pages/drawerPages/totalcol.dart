@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uno_kart/pages/components/date.dart';
 
 class TotalCollection extends StatefulWidget {
   @override
@@ -8,95 +9,97 @@ class TotalCollection extends StatefulWidget {
 class _TotalCollectionState extends State<TotalCollection> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body:
-            // Padding(
-            //   padding: const EdgeInsets.fromLTRB(5,0,5,0),
-            //   child: Row(
-            //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //     children: [
-            //       Flexible(
-            //         child: Container(
-            //           width: double.maxFinite,
-            //           decoration: BoxDecoration(
-            //             borderRadius: BorderRadius.circular(10),
-            //             border: Border.all(color: Colors.black),
-            //           ),
-            //           child: TextFormField(
-            //             decoration: InputDecoration(
-            //               hintText: 'Select Start Date'
-            //             )
-            //           ),
-            //         ),
-            //       ),
-            //       Flexible(
-            //         child: Container(
-            //           width: double.maxFinite,
-            //           decoration: BoxDecoration(
-            //             borderRadius: BorderRadius.circular(10),
-            //             border: Border.all(color: Colors.black),
-            //           ),
-            //           child: TextFormField(
-            //               decoration: InputDecoration(
-            //                   hintText: 'Select End Date'
-            //               )
-            //           ),
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            // )
-            Container(
-                color: Colors.white,
-                width: double.infinity,
-                height: double.infinity,
-                padding: EdgeInsets.all(15),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          height: MediaQuery.of(context).size.height * 0.05,
-                          width: MediaQuery.of(context).size.width * 0.425,
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.black),
-                              borderRadius: BorderRadius.circular(5)),
-                          child: FlatButton(
-                            onPressed: (){},
-                            child: Text('Select start date',style: TextStyle(fontSize: 10,color: Colors.grey))
-                          )
-                        ),
-                        Container(
-                            height: MediaQuery.of(context).size.height * 0.05,
-                            width: MediaQuery.of(context).size.width * 0.425,
-                            decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black),
-                                borderRadius: BorderRadius.circular(5)),
-                            child: FlatButton(
-                                onPressed: (){},
-                                child: Text('Select end date',style: TextStyle(fontSize: 10,color: Colors.grey))
-                            )
-                        ),
-                      ],
-                    ),
-
-                      Container(
-                          height: MediaQuery.of(context).size.height * 0.05,
-                          width: MediaQuery.of(context).size.width * 0.425,
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.black),
-                              borderRadius: BorderRadius.circular(5)),
-                          child: FlatButton(
-                              onPressed: (){
-                                
-                              },
-                              child: Text('Select end date',style: TextStyle(fontSize: 10,color: Colors.grey))
-                          )
-                    )
-                  ],
-                )));
+    return Container(
+        padding: EdgeInsets.all(10),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            DatePickerWidget(),
+            FlatButton(
+              onPressed: () {},
+              child: Text("SEARCH"),
+              color: Colors.blue,
+            ),
+            Divider(
+              thickness: 1,
+              color: Colors.black,
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Center(child: Text("Total Order")),
+            SizedBox(
+              height: 5,
+            ),
+            Divider(
+              thickness: 1,
+              color: Colors.black,
+            ),
+            SizedBox(height: 20,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(flex:8,child: Text("Total Amt")),
+                Expanded(flex:7,child: Text(":")),
+                Expanded(flex:0,child: Text("hao"))
+              ],
+            ),
+            SizedBox(height: 20,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(flex:8,child: Text("Discount Amt")),
+                Expanded(flex:7,child: Text(":")),
+                Expanded(flex:0,child: Text("hao"))
+              ],
+            ),
+            SizedBox(height: 20,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(flex:8,child: Text("GST Amt")),
+                Expanded(flex:7,child: Text(":")),
+                Expanded(flex:0,child: Text("hao"))
+              ],
+            ),
+            SizedBox(height: 20,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(flex:8,child: Text("Packaging Amt")),
+                Expanded(flex:7,child: Text(":")),
+                Expanded(flex:0,child: Text("hao"))
+              ],
+            ),
+            SizedBox(height: 20,),
+            Divider(
+              thickness: 1,
+              color: Colors.black,
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Center(child: Text("Partnership Percent")),
+            SizedBox(
+              height: 5,
+            ),
+            Divider(
+              thickness: 1,
+              color: Colors.black,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(flex:2,child: Text("Total Amt")),
+                Expanded(flex:1,child: Text(":")),
+                Expanded(flex:1,child: Text("Payable Amount"))
+              ],
+            ),
+            Divider(
+              thickness: 1,
+              color: Colors.black,
+            ),
+          ],
+        ));
   }
 }
