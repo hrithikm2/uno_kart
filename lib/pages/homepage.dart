@@ -9,6 +9,8 @@ import 'package:uno_kart/pages/drawerPages/neworder.dart';
 import 'package:uno_kart/pages/drawerPages/searchorder.dart';
 import 'package:uno_kart/pages/drawerPages/totalcol.dart';
 
+import 'components/Constant.dart';
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -17,29 +19,52 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final _pageController = PageController();
   String appBarTitle = 'New Order';
+
+  void handleClick(String choice) {
+    if(choice == Constants.LogOut){
+      print('LogOut');}
+
+  }
+
+
   @override
-  Widget build(BuildContext context){
-    return Scaffold(
-        appBar:
-        Myappbar(title: Text(appBarTitle)),
-        drawer: Drawer(
-          child: ListView(
-            physics: NeverScrollableScrollPhysics(),
-            padding: EdgeInsets.zero,
-            children: <Widget>[
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.25,
-                child: DrawerHeader(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Flexible(
-                        child: Image.asset(
-                          "res/admin.png",
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+          appBar: AppBar(backgroundColor: Color(0xffcf91ff),
+            title: Text(appBarTitle),
+            actions: [
+              PopupMenuButton<String>(
+                onSelected: handleClick,
+                itemBuilder: (BuildContext context) {
+                  return Constants.choices.map((String choice) {
+                    return PopupMenuItem<String>(
+                      value: choice,
+                      child: Text('${choice}${"        "}'),
+                    );
+                  }).toList();
+                },
+              ),
+            ],
+          ),
+          drawer: Drawer(
+            child: ListView(
+              physics: NeverScrollableScrollPhysics(),
+              padding: EdgeInsets.zero,
+              children: <Widget>[
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.25,
+                  child: DrawerHeader(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Flexible(
+                          child: Image.asset(
+                            "res/admin.png",
+                          ),
                         ),
-                      ),
-                      Text(
-                        'Drawer Header',
+                        Text(
+                          'Drawer Header',
                         style: TextStyle(color: Colors.white),
                       ),
                     ],
@@ -166,16 +191,17 @@ class _HomePageState extends State<HomePage> {
         ),
         body: PageView(
             controller: _pageController,
-            children: <Widget>[
-              NewOrder(),
-              DeliveryDetail(),
-              CancelOrder(),
-              SearchOrder(),
-              TotalCollection(),
-              ContactUs(),
-              MenuList(),
-              AboutRestro(),
-            ],
-            physics: NeverScrollableScrollPhysics()));
+              children: <Widget>[
+                NewOrder(),
+                DeliveryDetail(),
+                CancelOrder(),
+                SearchOrder(),
+                TotalCollection(),
+                ContactUs(),
+                MenuList(),
+                AboutRestro(),
+              ],
+              physics: NeverScrollableScrollPhysics())),
+    );
   }
 }
