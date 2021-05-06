@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:uno_kart/login/login.dart';
 import 'package:uno_kart/pages/components/customappbar.dart';
 import 'package:uno_kart/pages/components/date.dart';
+import 'package:uno_kart/pages/drawerPages/aboutres.dart';
 import 'package:uno_kart/pages/drawerPages/searchorder.dart';
 import 'package:uno_kart/pages/homepage.dart';
 
