@@ -63,7 +63,7 @@ class _AboutRestroState extends State<AboutRestro> {
                           height: 10,
                         ),
                         Text(
-                          "    Varsha CHabriya",
+                          "    Varsha Chabriya",
                           style: TextStyle(fontSize: 17),
                         ),
                         SizedBox(
