@@ -182,7 +182,7 @@ class _HomePageState extends State<HomePage> {
                   Navigator.pop(context);
                   _pageController.jumpToPage(7);
                   setState(() {
-                    appBarTitle = 'About Restaurant';
+                    appBarTitle = 'Home';
                   });
                 },
               ),
