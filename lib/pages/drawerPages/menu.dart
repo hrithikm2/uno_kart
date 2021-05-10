@@ -10,14 +10,19 @@ class MenuList extends StatefulWidget {
 }
 
 List<String> items = ['Select Menu'];
+List<String> menuId = ["0"];
+bool sat = false;
 addItems(){
-
-  print("dd");
-
-  for(var i = 0;i< menuData.menuDataData.length;i++){
-    items.add(menuData.menuDataData[i].menuName);
-  }
-  print(items);
+  print(sat);
+  if(items.length<2)
+    {for(var i = 0;i< menuData.menuDataData.length;i++){
+      print(sat);
+      items.add(menuData.menuDataData[i].menuName);
+      items.add(menuData.menuDataData[i].menuId);
+    }
+    }
+  sat = false;
+  print(sat);
 }
 
 class _MenuListState extends State<MenuList> {
@@ -50,20 +55,29 @@ class _MenuListState extends State<MenuList> {
                         color: Colors.black,
                       ),
                       borderRadius: BorderRadius.circular(5)),
-                  child: DropdownButton<String>(
+                  child:
+                  DropdownButton<String>(
                     icon: Icon(null),
                     underline: Container(
                       color: Colors.transparent,
                     ),
                     value: currentItem,
                     items: items.map((String dropDownStringItem) {
-                      return
-                      DropdownMenuItem<String>(
+                      return DropdownMenuItem<String>(
                           value: dropDownStringItem,
                           onTap:(){
+                            setState(() {
+                              sat = true;
+                            });
                             addItems();
                           },
-                          child: Text(dropDownStringItem));
+                          child: (sat)?Center(
+                            child: Container(
+                                height: 15,
+                                width: 15,
+                                child: CircularProgressIndicator()),
+                          ):
+                          Text(dropDownStringItem));
                     }).toList(),
                     onChanged: (String newValueSelected) {
                       setState(() {
@@ -77,6 +91,28 @@ class _MenuListState extends State<MenuList> {
                     ),
                   )),
             ),
+            (!snapshot.hasData)?Center(
+              child: Container(
+                height: 20,
+                width: 20,
+                child: CircularProgressIndicator(),
+              ),
+            ):
+            Expanded(
+              child: FutureBuilder(
+                  future: createAlbumMenuDetails("1"),
+                  builder: (context,snapshot){
+                return ListView.builder(
+                    itemCount: menuData.menuDataData.length,
+                    itemBuilder: (context,index){
+                  return ListTile(
+                    title: Text('MenuName: ${snapshot.data.menuDataData[index].menuName}'),
+                    subtitle: Text('MenuId: ${snapshot.data.menuDataData[index].menuId}'),
+                  );
+                });
+              }),
+            )
+            //container ke andar future builder, call func parameter
                   ]
               ),
         );
