@@ -9,7 +9,7 @@ class MenuList extends StatefulWidget {
   _MenuListState createState() => _MenuListState();
 }
 
-List<String> items = ['Select Menu'],displayItems;
+List<String> items = ['Select Menu'];
 addItems(){
 
   print("dd");
@@ -17,7 +17,6 @@ addItems(){
   for(var i = 0;i< menuData.menuDataData.length;i++){
     items.add(menuData.menuDataData[i].menuName);
   }
-  displayItems = items;
   print(items);
 }
 
@@ -57,9 +56,8 @@ class _MenuListState extends State<MenuList> {
                       color: Colors.transparent,
                     ),
                     value: currentItem,
-                    items: displayItems.map((String dropDownStringItem) {
+                    items: items.map((String dropDownStringItem) {
                       return
-                      displayItems == null? CircularProgressIndicator():
                       DropdownMenuItem<String>(
                           value: dropDownStringItem,
                           onTap:(){
